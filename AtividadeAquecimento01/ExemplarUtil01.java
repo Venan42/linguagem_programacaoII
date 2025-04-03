@@ -94,7 +94,6 @@ public class ExemplarUtil01 {
 
 				case 5:
 					int maiorEmp = 0;
-					Exemplar exemplar;
 					for(int i = 0; i <MAX; i++){
 						if (acervo[i].getEmprestimos() > maiorEmp){
 							maiorEmp = acervo[i].getEmprestimos();
