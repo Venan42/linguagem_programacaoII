@@ -1,4 +1,4 @@
-package AtividadeAquecimento02;
+package atividade_aquecimento02;
 
 import java.util.Random;
 

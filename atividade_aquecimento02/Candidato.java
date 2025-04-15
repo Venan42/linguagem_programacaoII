@@ -1,4 +1,4 @@
-package AtividadeAquecimento02;
+package atividade_aquecimento02;
 
 public class Candidato {
     private int idade;
@@ -12,7 +12,7 @@ public class Candidato {
             throw new IllegalArgumentException(idade +" é uma idade inválida");
         } else if(Character.toLowerCase(sexo) != 'f' && Character.toLowerCase(sexo) != 'm') {
             throw new IllegalArgumentException(sexo + " é um caractere inválido!");
-        } else if(partido < 0 && partido > 99) {
+        } else if(partido < 0 || partido > 99) {
             throw new IllegalArgumentException(partido + " não é um partido válido!");
         }
         this.partido = partido;
