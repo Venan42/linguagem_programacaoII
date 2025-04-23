@@ -18,7 +18,7 @@ public class Voo {
     }
 
     public boolean isAssentoLivre(int index) {
-        booelean aux = false;
+        boolean aux = false;
 
         if(assentos[index])
             aux = true;
