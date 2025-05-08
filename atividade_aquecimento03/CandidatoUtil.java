@@ -14,8 +14,7 @@ public class CandidatoUtil {
                 System.out.println("1) Adicionar candidato    ");
                 System.out.println("2) Encerrar               ");
                 System.out.println("--------------------------");
-                int resp = scanner.nextInt();
-                scanner.nextLine();
+                int resp = Integer.parseInt(scanner.nextLine());
 
                 switch (resp) {
                     case 1:
