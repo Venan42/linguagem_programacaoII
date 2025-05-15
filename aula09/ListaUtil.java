@@ -2,10 +2,11 @@ package aula09;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class ListaUtil {
     public static void main(String[] args) {
-        ArrayList<String> nomes = new ArrayList<>();
+        List<String> nomes = new ArrayList<>();
         nomes.add(0, "Maria");
         nomes.add(0, "Alex");
         nomes.add(1, "João");
