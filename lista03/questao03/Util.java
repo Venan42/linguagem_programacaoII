@@ -1,4 +1,4 @@
-package lista03.questao01;
+package lista03.questao03;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +7,22 @@ import java.util.Scanner;
 public class Util {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<String> animais1 = new ArrayList<String>();
-        List<String> animais2 = new ArrayList<String>();
-
+        List<String> animais1 = new ArrayList<>();
+        List<String> animais2 = new ArrayList<>();
         for(int i = 0; i < 10; i++){
+            boolean animaisEstaNaLista = false;
             System.out.print("Digite o " + (i+1) + "º animal: ");
             String animal = scanner.nextLine();
+            for(String animalNaLista : animais1){
+                if(animal.equalsIgnoreCase(animalNaLista)){
+                    animaisEstaNaLista = true;
+                }
+            }
+            if(animaisEstaNaLista){
+                i--;
+                System.out.println("O animal já está na lista!");
+                continue;
+            }
             animais1.add(animal);
         }
         for(String animal : animais1){
