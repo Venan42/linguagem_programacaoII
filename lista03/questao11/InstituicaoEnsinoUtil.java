@@ -1,8 +1,9 @@
-package lista03.questao10;
+package lista03.questao11;
 
 import lista03.questao09.InstituicaoEnsino;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +13,25 @@ public class InstituicaoEnsinoUtil {
             "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN",
             "RS", "RO", "RR", "SC", "SP", "SE", "TO"
     };
+    public static final String[] estadosNorte = {
+            "AC", "AP", "AM", "PA", "RO", "RR", "TO"
+    };
+
+    public static final String[] estadosNordeste = {
+            "AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE"
+    };
+
+    public static final String[] estadosCentroOeste = {
+            "DF", "GO", "MT", "MS"
+    };
+
+    public static final String[] estadosSudeste = {
+            "ES", "MG", "RJ", "SP"
+    };
+
+    public static final String[] estadosSul = {
+            "PR", "RS", "SC"
+    };
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -20,16 +40,17 @@ public class InstituicaoEnsinoUtil {
         while (op) {
             try {
                 System.out.println("Qual operação deseja realizar?");
-                System.out.println("--------------OPERAÇOES--------------");
-                System.out.println("-1) Inserir nova intituição         -");
-                System.out.println("-2) Listar instituições públicas    -");
-                System.out.println("-3) Listar intituições privadas     -");
-                System.out.println("-4) Qtd de públicas e de privadas   -");
-                System.out.println("-5) Listar todas as instituições    -");
-                System.out.println("-6) Encerrar                        -");
-                System.out.println("-- ----------------------------------");
+                System.out.println("------------------OPERAÇOES------------------");
+                System.out.println("-1) Inserir nova intituição                 -");
+                System.out.println("-2) Listar instituições públicas            -");
+                System.out.println("-3) Listar intituições privadas             -");
+                System.out.println("-4) Qtd de públicas e de privadas por estado-");
+                System.out.println("-5) Listar todas as instituições            -");
+                System.out.println("-6) Percentual de instituições por região   -");
+                System.out.println("-7) Encerrar                                -");
+                System.out.println("-- ------------------------------------------");
                 int resp = Integer.parseInt(scanner.nextLine());
-                if (resp > 6 || resp < 0) {
+                if (resp > 7 || resp < 0) {
                     throw new Exception("Operação inválida.");
                 }
                 switch (resp) {
@@ -117,6 +138,32 @@ public class InstituicaoEnsinoUtil {
                         }
                         break;
                     case 6:
+                        double  instituicoesNorte = 0,
+                                instituicoesNordeste = 0,
+                                instituicoesSudeste = 0,
+                                instituicoesCentroOeste = 0,
+                                instituicoesSul = 0;
+                        for(InstituicaoEnsino instituicao : instituicoes){
+                            if(Arrays.asList(estadosNorte).contains(instituicao.getSiglaEstado()))
+                                instituicoesNorte++;
+                            else if(Arrays.asList(estadosNordeste).contains(instituicao.getSiglaEstado()))
+                                instituicoesNordeste++;
+                            else if(Arrays.asList(estadosSudeste).contains(instituicao.getSiglaEstado()))
+                                instituicoesSudeste++;
+                            else if(Arrays.asList(estadosCentroOeste).contains(instituicao.getSiglaEstado()))
+                                instituicoesCentroOeste++;
+                            else
+                                instituicoesSul++;
+                        }
+                        double total = instituicoesSul + instituicoesNordeste + instituicoesNorte + instituicoesSudeste + instituicoesCentroOeste;
+                        System.out.println("Percentual de instituições no estado do Norte: " + (instituicoesNorte * 100.0 / total) + "%");
+                        System.out.println("Percentual de instituições no estado do Nordeste: " + (instituicoesNordeste * 100.0 / total) + "%");
+                        System.out.println("Percentual de instituições no estado do Sudeste: " + (instituicoesSudeste * 100.0 / total) + "%");
+                        System.out.println("Percentual de instituições no estado do Centro-Oeste: " + (instituicoesCentroOeste * 100.0 / total) + "%");
+                        System.out.println("Percentual de instituições no estado do Sul: " + (instituicoesSul * 100.0 / total) + "%");
+
+                        break;
+                    case 7:
                         System.out.println("Tchau!");
                         op = false;
                         break;
