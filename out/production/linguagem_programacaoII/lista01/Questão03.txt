@@ -1,9 +1,0 @@
-public A()              ---
-public A(int x)         Sobrecarga de A()
-public void m1()        ---
-public void m1(int h)   Sobrecarga de m1()
-
-public B()              Sobrescrita de A()
-public B(int x)         Sobrecarga de B()
-public void m1()        Sobrescrita de A.m1()
-public void m1(int x)   Sobrecarga de B.m1()
