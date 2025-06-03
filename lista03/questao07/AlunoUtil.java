@@ -1,6 +1,10 @@
-package lista03.questao06;
+package lista03.questao07;
 
-import java.util.*;
+import lista03.questao06.Aluno;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class AlunoUtil {
     public static void main(String[] args) {
@@ -10,12 +14,14 @@ public class AlunoUtil {
         while (op) {
             try {
                 System.out.println("Qual operação deseja realizar?");
-                System.out.println("-----------OPERAÇOES-----------");
-                System.out.println("-1) Inserir novo aluno        -");
-                System.out.println("-2) Encerrar                  -");
-                System.out.println("-------------------------------");
+                System.out.println("--------------OPERAÇOES--------------");
+                System.out.println("-1) Inserir novo aluno              -");
+                System.out.println("-2) Listar alunos por curso         -");
+                System.out.println("-3) Listar alunos por ano e semestre-");
+                System.out.println("-4) Encerrar                        -");
+                System.out.println("-------------------------------------");
                 int resp = Integer.parseInt(scanner.nextLine());
-                if (resp > 2 || resp < 0) {
+                if (resp > 4 || resp < 0) {
                     throw new Exception("Operação inválida.");
                 }
                 switch (resp) {
@@ -49,6 +55,28 @@ public class AlunoUtil {
                         }
                         break;
                     case 2:
+                        System.out.print("Qual curso você quer filtrar? ");
+                        String curso = scanner.nextLine();
+                        List<Aluno> alunosPorCurso = new ArrayList<>();
+                        for(Aluno aluno : alunos){
+                            if(aluno.getCurso().equalsIgnoreCase(curso))
+                                alunosPorCurso.add(aluno);
+                        }
+                        System.out.println(alunosPorCurso);
+                        break;
+                    case 3:
+                        System.out.print("Qual ano você quer filtrar? ");
+                        int ano = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Qual semestre você quer filtrar? ");
+                        int semestre = Integer.parseInt(scanner.nextLine());
+                        List<Aluno> alunosPorAnoESemestre = new ArrayList<>();
+                        for(Aluno aluno : alunos){
+                            if(aluno.getAnoIngresso() == ano && aluno.getSemestreIngresso() == semestre)
+                                alunosPorAnoESemestre.add(aluno);
+                        }
+                        System.out.println(alunosPorAnoESemestre);
+                        break;
+                    case 4:
                         System.out.println("Tchau!");
                         op = false;
                         break;
