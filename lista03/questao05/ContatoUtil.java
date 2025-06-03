@@ -28,11 +28,11 @@ public class ContatoUtil {
                             String nome = scanner.nextLine();
                             System.out.print("Insira o telefone do contato: ");
                             long telefone = Integer.parseInt(scanner.nextLine());
-                            System.out.println("Insira o dia de nascimento do contato: ");
+                            System.out.print("Insira o dia de nascimento do contato: ");
                             int dia = Integer.parseInt(scanner.nextLine());
-                            System.out.println("Insira o mes de nascimento do contato: ");
+                            System.out.print("Insira o mes de nascimento do contato: ");
                             int mes = Integer.parseInt(scanner.nextLine()) - 1;
-                            System.out.println("Insira o ano de nascimento do contato: ");
+                            System.out.print("Insira o ano de nascimento do contato: ");
                             int ano = Integer.parseInt(scanner.nextLine());
                             if(ano > 2025)
                                 throw new Exception();
@@ -45,9 +45,9 @@ public class ContatoUtil {
                         }
                         break;
                     case 2:
-                        System.out.println("Qual ano deseja buscar?");
+                        System.out.print("Qual ano deseja buscar? ");
                         List<Contato> contatosPorAno = new ArrayList<>();
-                        int ano = scanner.nextInt();
+                        int ano = Integer.parseInt(scanner.nextLine());
                         for (Contato contato : contatos){
                             if(contato.getDataNascimento().get(Calendar.YEAR) == ano){
                                 contatosPorAno.add(contato);
@@ -61,7 +61,7 @@ public class ContatoUtil {
                         break;
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println("Operação falhou!");
             }
         }
 
