@@ -57,5 +57,15 @@ public class InstituicaoEnsino {
 	public void setQuantidadeCursos(int quantidadeCursos) {
 		this.quantidadeCursos = quantidadeCursos;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "InstituicaoEnsino {" +
+				"nome='" + nome + '\'' +
+				", sigla='" + sigla + '\'' +
+				", siglaEstado='" + siglaEstado + '\'' +
+				", publica=" + (publica ? "Pública" : "Privada") +
+				", quantidadeCursos=" + quantidadeCursos +
+				'}';
+	}
 }
