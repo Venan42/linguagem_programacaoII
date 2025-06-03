@@ -66,6 +66,17 @@ public class Aluno {
 
 	public void setSemestreIngresso(int semestreIngresso) {
 		this.semestreIngresso = semestreIngresso;
-	}	
-	
+	}
+
+	@Override
+	public String toString() {
+		return "Aluno{" +
+				"matricula=" + matricula +
+				", nome='" + nome + '\'' +
+				", sexo='" + sexo + '\'' +
+				", curso='" + curso + '\'' +
+				", anoIngresso=" + anoIngresso +
+				", semestreIngresso=" + semestreIngresso +
+				'}';
+	}
 }
