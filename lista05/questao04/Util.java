@@ -14,7 +14,6 @@ public class Util {
             System.out.print("Quantas pessoas serão geradas?");
             int quantidade = Integer.parseInt(scanner.nextLine());
             String[] pessoas = new String[quantidade];
-            String[] idades = new String[quantidade];
             String nome = "", sobrenome = "";
             BufferedWriter pessoasWrite = new BufferedWriter(new FileWriter("lista05/textos/pessoas.txt"));
             for (int i = 0; i < quantidade; i++) {
